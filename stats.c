@@ -34,6 +34,18 @@ else
 }
 return s;}
 
+Stats compute_statistics(const int numberset, int setlength) {
+if ((setlength == 0 ) || (numberset == 0))
+	{
+		Stats s;
+   s.average = NAN;
+    s.min = NAN;
+    s.max = NAN;
+		return s;		
+	}
+	
+}
+
 void emailAlerter()
 {	
 	 emailAlertCallCount = 1;
@@ -43,11 +55,12 @@ void ledAlerter()
  ledAlertCallCount = 1;
 }
 
-void check_and_alert(float maxThreshold,alerter_funcptr alerters, Stats computedStats)
+void check_and_alert(float maxThreshold,alerter_funcptr alerters[], Stats computedStats)
 {
 	if(computedStats.max > maxThreshold)
 	{
-		alerters();
+		alerters[0]();
+		alerters[1]();
 			
 	}
 	
