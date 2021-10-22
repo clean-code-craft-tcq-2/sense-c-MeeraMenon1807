@@ -21,4 +21,5 @@ extern void  emailAlerter();
 extern void  ledAlerter();
 extern int emailAlertCallCount;
 extern int ledAlertCallCount;
+Stats compute_statistics(const int numberset, int setlength) ;
  #endif
