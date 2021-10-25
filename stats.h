@@ -1,8 +1,19 @@
+#ifndef STATS_H 
+#define STATS_H 
 
-struct Stats compute_statistics(const float* numberset, int setlength);
+#include <math.h>
+#ifdef NAN
+/* NAN is supported */
+#endif
 
-typedef void (*alerter_funcptr)();
-void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats);
+struct Stats 
+{
+	float average;
+    float min ;
+    float max;
+};
 
-extern int emailAlertCallCount;
-extern int ledAlertCallCount;
+extern  Stats compute_statistics(const float* numberset, int setlength);
+
+Stats compute_statistics(const int numberset, int setlength) ;
+ #endif
